@@ -19,6 +19,23 @@ var friendArr = [{
     "photo": "https://gratisography.com/thumbnails/gratisography-hipster-girl-thumbnail-small.jpg",
     "scores": ["5", "2", "4", "1", "1", "4", "3", "3", "2", "1"]
   },
+  {
+    "name": "Mehn",
+    "photo": "https://gratisography.com/thumbnails/gratisography-ripped-jeans-thumbnail-small.jpg",
+    "scores": [
+      "5",
+      "1",
+      "3",
+      "2",
+      "1",
+      "1",
+      "5",
+      "2",
+      "2",
+      "1",
+      "1"
+    ]
+  }
 
 ]
 
