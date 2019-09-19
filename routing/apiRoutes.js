@@ -19,21 +19,33 @@ module.exports = function (app) {
 
   app.post("/api/friends", function (req, res) {
 
-    var userAns = req.body
-    var userRes = userAns.scores
-    var newArr = [];
-    var diff;
+    var userAns = req.body;
+    var userRes = userAns.scores;
+    var avgScore = 40;
+    var tempScore = 0;
+    var newfriend = {};
+
+    console.log(`New Friend score: ${userRes}`);
+
+
     for (var i = 0; i < friendsData.length; i++) {
-      diff = 0;
-      for (var j = 0; j < userRes.length; j++) {
-        diff += Math.abs(friendsData[i].scores[j] - userRes[j]);
+
+      // For each score in the friend's scores array...
+      for (var j = 0; j < friendsData[i].scores.length; j++) {
+        tempScore += Math.abs(userRes[j] - friendsData[i].scores[j]);
       }
-      newArr.push(diff);
-    }
 
-    var match = newArr.indexOf(Math.min(...newArr));
-    friendsData.push(userAns);
-    res.json(friendsData[match]);
+      // If difference is lower than record, update record and the "best match" and reset tempDiff. Else ignore.
+      if (tempScore <= avgScore) {
+        newfriend = friendsData[i];
+        avgScore = tempScore;
+      }
+      tempScore = 0;
+    };
+    // Add user data to friends array
+    friendsData.push(req.body);
 
+    // Return the best matched friend object
+    res.json(newfriend);
   });
 };
