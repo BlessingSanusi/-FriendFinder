@@ -15,3 +15,11 @@
 > `apiRoutes.js` file contains two routes: A GET Route to `/api/friends` that will be used to display a JSON of all possible friends, and a POST routes `/api/friends` that handles incoming survey results. This route will also be used to handle the compatibility logic.
 
 > Application data is saved in `app/data/friends.js` as an array of objects.
+
+### Demo
+
+### Dependencies
+
+- Express
+- Nodemon
+- Path
